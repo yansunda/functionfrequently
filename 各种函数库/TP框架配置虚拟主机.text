@@ -1,0 +1,53 @@
+web 服务器都有重定向的功能呢。
+第一步：开启Apache重写功能。
+	打开配置文件:把  LoadModule rewrite_module modules/mod_rewrite.so 开头的 “#” 去掉
+第二步：还是在Apache的配置文件中，配置网站的 “根目录” 和 为 “根目录” 配置权限。
+网站根目录“ DocumentRoot "F:/PHPSoftware/wamp/www/"
+为 “根目录“ 配置权限 
+<Directory F:/PHPSoftware/wamp/www/">
+    AllowOverride all
+    Require all denied
+</Directory>
+第三步：在网站根目录中写.htaccess 文件【配置重定向】
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>
+
+重要的就是最后一句，就是无论url上面是什么都重定向到index.php中。
+
+第三步：配置虚拟主机
+在 C:\Windows\System32\drivers\etc\hosts 文件中配置域名，在里面加上一行 
+127.0.0.1		www.xrk.com   //注意如果不能保存就先拖到桌面保存，再拖回来即可
+
+修改Apache的配置文件    但是虚拟主机的配置可以不要写在Apache中。
+我们可以写在vhosts.conf文件中，这个需要先开启加载虚拟主机文件的配置。
+此文件在  apache2.4.9\conf\extra 目录中。
+
+
+
+在vhosts.conf 文件中加入以下代码。
+
+
+<VirtualHost *:80>
+    documentRoot "F:/PHPSoftware/wamp/www/www.xrk.com"  //网站目录
+    DirectoryIndex index.php                            //网站默认访问的第一个文件
+    ServerName www.xrk.com
+    <Directory "F:/PHPSoftware/wamp/www/www.xrk.com">   //为目录设置权限
+        Options Indexes FollowSymLinks
+        AllowOverride all                               //是否重写
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+
+我们写的时候要去掉注释
+
+到此完成.
+
+
+

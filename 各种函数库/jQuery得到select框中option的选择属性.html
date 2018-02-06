@@ -1,0 +1,21 @@
+<select id="select_type" name="goods_category_id">
+    <option>请选择</option>
+<?php foreach($data as $v):?>
+    <option value="<?php echo $v['id'];?>" ><?php echo $v['type_name'];?></option>
+<?php endforeach;?>
+</select>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        $("#select_type").change(function(e){
+           var x = $("#select_type option:selected").html();
+           alert(x);
+        });
+    });
+</script>

@@ -1,0 +1,1 @@
+我们可以查看时MySQL的错误日志，有可能在data数据中，我们可以根据错误日志来进行判断，如果innodb的我们就删除ibdata1一节ib_logfile0

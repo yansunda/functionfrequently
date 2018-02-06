@@ -1,0 +1,35 @@
+ IS_CGI 是否属于 CGI模式
+2. IS_WIN 是否属于Windows 环境
+3. IS_CLI 是否属于命令行模式
+4. __ROOT__ 网站根目录地址
+5. __APP__ 当前应用（入口文件）地址
+6. __MODULE__ 当前模块的URL地址
+7. __CONTROLLER__ 当前控制器的URL地址
+8. __ACTION__ 当前操作的URL地址
+9. __SELF__ 当前URL地址
+10. __INFO__ 当前的PATH_INFO字符串
+11. __EXT__ 当前URL地址的扩展名
+12. MODULE_NAME 当前模块名
+13. MODULE_PATH 当前模块路径
+14. CONTROLLER_NAME 当前控制器名
+15. ACTION_NAME 当前操作名
+16. APP_DEBUG 是否开启调试模式
+17. APP_MODE 当前应用模式名称
+18. APP_STATUS 当前应用状态
+19. STORAGE_TYPE 当前存储类型
+20. MODULE_PATHINFO_DEPR 模块的PATHINFO分割符
+21. MEMORY_LIMIT_ON 系统内存统计支持
+22. RUNTIME_FILE 项目编译缓存文件名
+23. THEME_NAME 当前主题名称
+24. THEME_PATH 当前模板主题路径
+25. LANG_SET 当前浏览器语言
+26. MAGIC_QUOTES_GPC MAGIC_QUOTES_GPC
+27. NOW_TIME 当前请求时间（时间戳）
+28. REQUEST_METHOD 当前请求类型
+29. IS_GET 当前是否GET请求
+30. IS_POST 当前是否POST请求
+31. IS_PUT 当前是否PUT请求
+32. IS_DELETE 当前是否DELETE请求
+33. IS_AJAX 当前是否AJAX请求
+34. BIND_MODULE 当前绑定的模块（3.2.1新增）
+35. BIND_CONTROLLER 当前绑定的控制器（3.2.1新增） 

@@ -1,0 +1,8 @@
+<form id="match" method="GET" action="">
+	标题：<input style="margin-right: 20px;" type="text" name="title" value="<?php echo I('get.title');?>">
+	时间：从<input type="text" name="timeStart" value="<?php echo I('get.timeStart');?>">
+		  到<input type="text" name="timeEnd" value="<?php echo I('get.timeEnd');?>">
+	<input type="submit" value="确定">
+	<p>时间：近<input <?php if(I('get.time')==''||I('get.time')==last) echo 'checked'; ?> type="radio" name="time" value="last" onclick="$('#match').submit();" >
+		  远<input <?php if(I('get.time')==far) echo 'checked' ;?> type="radio" value="far" name="time" onclick="$('#match').submit();"></p>	
+</form>

@@ -1,0 +1,27 @@
+解压直接看demo就行
+但是要注意此时这个是id 的，也就是说如果有多个file的话。要调用多次才行。
+以下是显示多张图片
+
+ <tr>
+    <td><a href="#" id="pics_add">[+]</a>商品相册</td>
+    <td><div id="imgdiv"><img id="imgShow" width="100" height="100" /></div><input id="up_img" class="image_show" type="file" name="goods_pics[]" /></td>
+</tr>
+
+
+
+$(function(){
+    	var i=2;
+    $("#pics_add").click(function(e){
+		var x = "<tr><td><a href='#' class='pics_del'>[-]</a>商品相册</td><td><div id='imgdiv"+i+"'><img id='imgShow"+i+"' width='100' height='100' /></div><input id='up_img" + i +"' type='file' name='goods_pics[]'/></td></tr>";
+		$("#gallery-tab_table").parent().append(x);
+		var up_img = 'up_img'+i;
+		//alert(up_img);
+		var imgdiv = 'imgdiv'+i;
+		var imgShow = 'imgShow'+i;
+		new uploadPreview({ UpBtn: up_img, DivShow: imgdiv, ImgShow: imgShow });
+		i++;
+		$(".pics_del").click(function(e){
+			$(e.target).parents('tr').remove();
+		});
+	});
+});

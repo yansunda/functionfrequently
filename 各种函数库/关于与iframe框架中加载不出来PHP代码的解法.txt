@@ -1,0 +1,10 @@
+用$this->display();加载不出来PHP代码的问题的解决。
+解法：我们在iframe框架集的时候，加载每个框架的语句要用U函数，不要用绝对路径。
+比如：
+<frame name=head src="<?php echo U('Index/head');?>" frameborder=0 noresize scrolling=no>
+            <frameset cols="170, *">
+                <frame name=left src="<?php echo U('Index/left');?>" frameborder=0 noresize />
+                <frame name=right src="<?php echo U('Index/right');?>" frameborder=0 noresize scrolling=yes />
+            </frameset>
+
+

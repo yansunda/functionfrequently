@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table id="gallery-tab_table" class="table_a">
+        <tr>
+            <td><a href="#" id="pics_add">[+]</a>商品相册</td>
+            <td><input type="file" name="goods_pics[]" /></td>
+        </tr>
+    </table>
+</body>
+</html>
+<script type="text/javascript" src="./js/jquery.min.js">
+    
+</script>
+<script type="text/javascript">
+	$(function(){
+		$("#pics_add").click(function(e){
+	        var x = "<tr><td><a href='#' class='pics_del'>[-]</a>商品相册</td><td><input type='file' name='goods_pics[]'/></td></tr>";
+	       $("#gallery-tab_table").append(x);
+	       $(".pics_del").click(function(e){
+	            $(e.target).parents('tr').remove();
+	       }); 
+	    });
+	});
+</script>
